@@ -31,7 +31,7 @@ public class CpuMove {
                     int scores;
                     if (Place.board[i][j] == ' ') {
                         Place.board[i][j] = 'C';
-                        scores = miniMax(depth ++, false);
+                        scores = miniMax(depth +1, false);
                         Place.board[i][j] = ' ';
                         score = Math.max(score, scores);
                     }
@@ -45,7 +45,7 @@ public class CpuMove {
                     int scores;
                     if (Place.board[i][j] == ' ') {
                         Place.board[i][j] = 'C';
-                        scores = miniMax(depth++, true);
+                        scores = miniMax(depth+1, true);
                         Place.board[i][j] = ' ';
                         score = Math.min(score, scores);
                     }
