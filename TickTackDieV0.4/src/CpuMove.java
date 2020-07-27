@@ -4,7 +4,7 @@ public class CpuMove {
     int move[] = {10, 10};
 
     void cpuM() {
-        int bestScore = -Integer.MAX_VALUE;
+        int bestScore = -1000;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (Place.board[i][j] == ' ') {
@@ -25,7 +25,7 @@ public class CpuMove {
 
     int miniMax(int depth, boolean max) {
         if (max) {
-            int score = -Integer.MAX_VALUE;
+            int score = -1000;
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     int scores;
@@ -39,12 +39,12 @@ public class CpuMove {
             }
             return score;
         } else {
-            int score = Integer.MAX_VALUE;
+            int score = 1000;
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     int scores;
                     if (Place.board[i][j] == ' ') {
-                        Place.board[i][j] = 'C';
+                        Place.board[i][j] = 'P';
                         scores = miniMax(depth+1, true);
                         Place.board[i][j] = ' ';
                         score = Math.min(score, scores);
